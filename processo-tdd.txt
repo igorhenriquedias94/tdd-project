@@ -1,0 +1,1 @@
+No nosso desenvolvimento o processo de escrever codigos pequenos é mais complexo e de maneira mais curta, fazemos isso várias vezes até chegar no codigo que queremos.
