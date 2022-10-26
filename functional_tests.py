@@ -42,6 +42,7 @@ class NewVisitorTest(unittest.TestCase):
             any(row.text == '1: Estudar testes funcionais' for row in rows)
         )
         
+        
         # Ainda existe uma caixa de texto convidando para adicionar outro item
         # Ela digita: "Estudar testes de unidade"
 
