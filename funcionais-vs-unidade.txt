@@ -1,0 +1,1 @@
+o teste de unidade verifica os módulos ou unidades individuais do sistema enquanto o teste funcional verifica os recursos ou as funcionalidades do sistema. Testes Funcionais ajudam a construir uma aplicação com funcionalidades corretas, enquanto Testes de Unidade ajudam a escrever código limpo e sem bug.
