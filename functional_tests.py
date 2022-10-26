@@ -2,15 +2,17 @@ from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 import unittest
 
-class NewVisitorTest(unittest.TestCase):
+class NewVisitorTest(unittest.TestCase):  
 
-    def test_can_start_a_list_and_retrieve_it_later(self): 
-    
+    def setUp(self):  
         options = Options()
         options.binary_location = r'C:\Program Files\Mozilla Firefox\firefox.exe'
         self.browser = webdriver.Firefox(executable_path=r'C:\Users\igorh\Desktop\Testes_de_software\tdd-project\geckodriver.exe', options=options)
 
-    
+    def tearDown(self):  
+        self.browser.quit()
+
+    def test_can_start_a_list_and_retrieve_it_later(self):  
         # Maria decidiu utilizar o novo app TODO. Ela entra em sua página principal:
         self.browser.get('http://localhost:8000')
 
@@ -35,8 +37,6 @@ class NewVisitorTest(unittest.TestCase):
         # Ela visita a URL: a sua lista TODO ainda está armazenada
 
         # Satisfeita, ela vai dormir
-        
-        self.browser.quit()
 
-if __name__ == '__main__':
+if __name__ == '__main__':  
     unittest.main()
