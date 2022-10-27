@@ -42,8 +42,16 @@ class NewVisitorTest(unittest.TestCase):
         
         # Ainda existe uma caixa de texto convidando para adicionar outro item
         # Ela digita: "Estudar testes de unidade"
+        inputbox = self.browser.find_element_by_id('id_new_item')  
+        inputbox.send_keys('Estudar testes de unidade')
+        inputbox.send_keys(Keys.ENTER)
+        time.sleep(1)
 
         # A página atualiza novamente, e agora mostra ambos os itens na sua lista
+        table = self.browser.find_element_by_id('id_list_table')
+        rows = table.find_elements_by_tag_name('tr')
+        self.assertIn('1: Estudar testes funcionais', [row.text for row in rows])
+        self.assertIn('2: Estudar testes de unidade', [row.text for row in rows])
 
         # Maria se pergunta se o site vai lembrar da sua lista. Então, ela verifica que
         # o site gerou uma URL única para ela -- existe uma explicação sobre essa feature
@@ -51,6 +59,10 @@ class NewVisitorTest(unittest.TestCase):
         # Ela visita a URL: a sua lista TODO ainda está armazenada
 
         # Satisfeita, ela vai dormir
-
+    def check_for_row_in_list_table(self, row_text):
+        table = self.browser.find_element_by_id('id_list_table')
+        rows = table.find_elements_by_tag_name('tr')
+        self.assertIn(row_text, [row.text for row in rows])
+        
 if __name__ == '__main__':
     unittest.main()
