@@ -93,7 +93,10 @@ class NewVisitorTest(LiveServerTestCase):
 
         # Agora, um novo usuário, João, entra no site
         self.browser.quit()
-        self.browser = webdriver.Firefox()
+        
+        options = Options()
+        options.binary_location = r'C:\Program Files\Mozilla Firefox\firefox.exe'
+        self.browser = webdriver.Firefox(executable_path=r'C:\Users\igorh\Desktop\Testes_de_software\tdd-project\geckodriver.exe', options=options)
 
         # João visita a página inicial. Não existe nenhum sinal da lista de Maria
         self.browser.get(self.live_server_url)
